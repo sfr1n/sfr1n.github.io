@@ -19,6 +19,33 @@
             background-color: black;
             overflow-x: hidden;
         }
+        /* THEME TOGGLE BUTTON STYLE */
+        #modeToggle {
+            position: fixed;
+            bottom: 8px;
+            right: 8px;
+            z-index: 1000;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        #modeToggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+        .icon {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .light-mode #modeToggle {
+            border-color: black;
+            color: black;
+        }
         .light-mode {
             background-color: #f0f0f0;
             color: #000;
@@ -211,7 +238,13 @@
 <body>
     
     <!-- Dark Mode -->
-    <button id="modeToggle" title="Toggle dark/light mode">👁️</button>
+    <!-- OLD TOGGLE BUTTON (COMMENTED) -->
+    <!-- <button id="modeToggle" title="Toggle dark/light mode">👁️</button> -->
+
+    <!-- NEW STYLISH TOGGLE BUTTON (USES OLD ICONS) -->
+    <button id="modeToggle" title="TOGGLE TO CHANGE MODE">
+    <span class="icon" id="themeIcon">👁️</span>
+    </button>
     
     <!-- Loading Screen -->
     <div class="loading-screen">
@@ -331,7 +364,7 @@
         function closeFullscreen() {
             document.getElementById("fullscreenOverlay").style.display = "none";
         }
-        const toggleBtn = document.getElementById("modeToggle");
+        /*const toggleBtn = document.getElementById("modeToggle");
         const currentMode = localStorage.getItem("theme") || "dark";
 
         document.body.classList.toggle("light-mode", currentMode === "light");
@@ -341,7 +374,25 @@
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
         toggleBtn.textContent = isLight ? "🩸" : "👁️";
+        }); */
+
+        const modeToggle = document.getElementById("modeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+        const savedTheme = localStorage.getItem("theme") || "dark";
+
+        if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+        themeIcon.textContent = "🩸";
+        } else {
+        themeIcon.textContent = "👁️";
+        }
+
+        modeToggle.addEventListener("click", () => {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+        themeIcon.textContent = isLight ? "🩸" : "👁️";
         });
      </script>
+    
 </body>
 </html>
