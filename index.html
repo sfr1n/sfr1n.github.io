@@ -20,21 +20,21 @@
         }
         .light-mode {
             background-color: #f0f0f0;
-            color: #111;
+            color: #000;
         }
         .light-mode header,
         .light-mode footer,
         .light-mode .support-section {
-             background: #ddd;
-             color: #000;
+             background: #000;
+             color: #5a1616;
        }
        .light-mode .project {
-             background: #fff;
+             background: #000;
              color: #000;
-             border: 2px solid #ccc;
+             border: 2px solid #000;
        }
        .light-mode a {
-             color: #222;
+             color: #5a1616;
        }
        .light-mode #modeToggle {
             color: black;
@@ -207,7 +207,7 @@
 <body>
     
     <!-- Dark Mode -->
-    <button id="modeToggle" title="Toggle dark/light mode">🌙</button>
+    <button id="modeToggle" title="Toggle dark/light mode">💀</button>
     
     <!-- Loading Screen -->
     <div class="loading-screen">
@@ -331,12 +331,12 @@
         const currentMode = localStorage.getItem("theme") || "dark";
 
         document.body.classList.toggle("light-mode", currentMode === "light");
-        toggleBtn.textContent = currentMode === "light" ? "🌞" : "🌙";
+        toggleBtn.textContent = currentMode === "light" ? "🩸" : "💀";
 
         toggleBtn.addEventListener("click", () => {
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
-        toggleBtn.textContent = isLight ? "🌞" : "🌙";
+        toggleBtn.textContent = isLight ? "🩸" : "💀";
         });
     </script>
 </body>
