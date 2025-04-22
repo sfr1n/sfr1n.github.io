@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sfr1n.com</title>
     
-    <style>
-        /* Global Reset */
-        * {
+    <style>  
+     * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        /* Body Styling */
+        }        
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -21,9 +18,28 @@
             background-color: black;
             overflow-x: hidden;
         }
-
-        /* Video Background */
-        .video-bg {
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #111;
+        }
+        .light-mode header,
+        .light-mode footer,
+        .light-mode .support-section {
+             background: #ddd;
+             color: #000;
+       }
+       .light-mode .project {
+             background: #fff;
+             color: #000;
+             border: 2px solid #ccc;
+       }
+       .light-mode a {
+             color: #222;
+       }
+       .light-mode #modeToggle {
+            color: black;
+       }
+       .video-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,8 +48,6 @@
             object-fit: cover;
             z-index: -1;
         }
-
-        /* Loading Screen */
         .loading-screen {
             position: fixed;
             width: 100%;
@@ -47,20 +61,21 @@
             animation: fadeOut 1.5s ease-in-out forwards;
             animation-delay: 1.5s;
         }
-
-        .loading-text {
+            /*
+            .loading-text {
             font-size: 28px;
             font-weight: bold;
             color: #ffffff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-        }
-
+        }   */
         @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; visibility: hidden; }
+            0% { opacity: 1;
+            }
+            100% { 
+            opacity: 0;
+            visibility: hidden; 
+            }
         }
-
-        /* Header Styling */
         header {
             background: #5a1616;
             padding: 15px;
@@ -68,24 +83,18 @@
             font-weight: bold;
             color: white;
         }
-
-        /* Section Styling */
         section {
             padding: 40px 20px;
             margin: 20px auto;
             width: 90%;
             border-radius: 10px;
         }
-
-        /* Portfolio Section - Grid Layout */
         .projects {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
-
-        /* Project Card */
         .project {
             border: 2px solid #5a1616;
             padding: 10px;
@@ -100,14 +109,10 @@
             padding-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        /* Hover Effect */
         .project:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
-
-        /* Project Image */
         .project img {
             width: 80%;
             height: auto;
@@ -116,15 +121,11 @@
             padding: 10px;
             cursor: pointer;
         }
-
-        /* "Visit Project" Link Styling */
         .project h6 a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
-
-        /* Fullscreen Image View */
         .fullscreen-overlay {
             position: fixed;
             top: 0;
@@ -137,13 +138,11 @@
             justify-content: center;
             z-index: 200;
         }
-
         .fullscreen-overlay img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
         }
-
         .close-btn {
             position: absolute;
             top: 20px;
@@ -152,51 +151,70 @@
             color: white;
             cursor: pointer;
         }
-
-        /* Footer Styling */
         footer {
             background: #5a1616;
             padding: 10px;
             color: white;
-            position: fixed;
-            bottom: 0;
+            /*position: fixed;
+            bottom: 0;*/
             width: 100%;
             font-size: 14px;
+            position: relative;
         }
-
-        /* Link Color Matching Theme */
         a {
             color: #5a1616;
             font-weight: bold;
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
         }
-
         .support-section {
-        text-align: center;
-        padding: 40px;
+            text-align: center;
+            padding: 40px;
+            background: #5a1616;
         }
-        
         .gcash-container img {
-        width: 200px;
-        height: auto;
-        margin: 20px auto;
-        display: block;
+            width: 200px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            cursor: pointer;
         }
+        #modeToggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+        @media screen and (max-width: 600px) {
+        .projects {
+            flex-direction: column;
+            align-items: center;
+        }
+        .project {
+           width: 90%;
+        }
+      }
 </style>
 
 </head>
 <body>
-
+    
+    <!-- Dark Mode -->
+    <button id="modeToggle" title="Toggle dark/light mode">🌙</button>
+    
     <!-- Loading Screen -->
     <div class="loading-screen">
         <video class="loading-video" autoplay muted loop>
             <source src="https://cdn.cosmos.so/7f801a70-adaf-47ce-bbe7-8a2075fdc395.mp4" type="video/mp4">
         </video>
-        <div class="loading-text"><span class="loading-dots"></span></div>
+       <!-- <div class="loading-text"><span class="loading-dots"></span></div> -->
     </div>
 
     <!-- Fullscreen Image Overlay -->
@@ -228,24 +246,21 @@
     <section>
         <h2></h2>
         <div class="projects">
-            <div class="project">
-                <img src="https://cdn.cosmos.so/ac743783-a619-4ca8-95d5-da65654c11ee?format=jpeg" 
-                     alt="SFR1N ART" onclick="openFullscreen(this)">
-                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">Visit Project</a></h6>
+            <div class="project" title="Untitled">
+                <img src="https://cdn.cosmos.so/ac743783-a619-4ca8-95d5-da65654c11ee?format=jpeg" alt="SFR1N ART" onclick="openFullscreen(this)">
+                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
             </div>
 
-            <div class="project">
-                <img src="https://cdn.cosmos.so/30a1bd85-b9f5-45fd-affb-163615475ccd?format=jpeg" 
-                     alt="SFR1N ART" onclick="openFullscreen(this)">
-                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">Visit Project</a></h6>
+            <div class="project" title="Untitled">
+                <img src="https://cdn.cosmos.so/30a1bd85-b9f5-45fd-affb-163615475ccd?format=jpeg" alt="SFR1N ART" onclick="openFullscreen(this)">
+                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
             </div>
 
-            <div class="project">
-                <img src="https://cdn.cosmos.so/97518972-df0e-4563-9ede-70ae23cb4dc0?format=png"
-                     alt="SFR1N ART" onclick="openFullscreen(this)">
-                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">Visit Project</a></h6>
+            <div class="project" title="Untitled">
+                <img src="https://cdn.cosmos.so/97518972-df0e-4563-9ede-70ae23cb4dc0?format=png"alt="SFR1N ART" onclick="openFullscreen(this)">
+                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
             </div>
-        </div>
+         </div>
     </section>
 
     <!-- Contact Info Section -->
@@ -267,11 +282,12 @@
     
 <!-- GCash Support -->
     <section class="support-section">
-      <h2>Support the Unknown</h2>
-      <div class="gcash-container">
-        <img src="gcash-qr-code.png.jpg" alt="GCash QR Code" class="gcash-qr" />
-        <p><strong>0931*****70</strong></p>
-      </div>
+            <h2>SUPPORT THE UNKNOWN</h2>
+            <div class="gcash-container">
+            <a href="https://linktr.ee/sfr1n" target="_blank">
+            <img src="gcash-qr-code.png.jpg" alt="GCash QR Code" class="gcash-qr" />
+            <p><strong>0931*****70</strong></p>
+            </div>
     </section>   
     
 <!-- Buy Me a Coffee Button 
@@ -284,13 +300,9 @@
                  style="height: 50px; width: 180px;">
         </a>
     </section>
-    -->
-    
+-->
     <!-- Footer -->
-    <footer>
-        &copy; SFR1N | CREATED BY ANGELO
-    </footer>
-<!-- Footer -->
+    <footer>&copy; SFR1N | CREATED BY ANGELO</footer>
 
 <!-- Buy Me a Pizza Button 
 <div style="margin-top: 20px;">
@@ -305,8 +317,7 @@
         data-font-color="#000000" 
         data-coffee-color="#5a1616">
     </script>
-    -->
-</div>
+</div>-->
     <script>
         function openFullscreen(imgElement) {
             document.getElementById("fullscreenImage").src = imgElement.src;
@@ -316,7 +327,17 @@
         function closeFullscreen() {
             document.getElementById("fullscreenOverlay").style.display = "none";
         }
-    </script>
+        const toggleBtn = document.getElementById("modeToggle");
+        const currentMode = localStorage.getItem("theme") || "dark";
 
+        document.body.classList.toggle("light-mode", currentMode === "light");
+        toggleBtn.textContent = currentMode === "light" ? "🌞" : "🌙";
+
+        toggleBtn.addEventListener("click", () => {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+        toggleBtn.textContent = isLight ? "🌞" : "🌙";
+        });
+    </script>
 </body>
 </html>
