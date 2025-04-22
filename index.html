@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sfr1n.com</title>
+    <link rel="icon" href="page-icon.jpg" type="image/jpg">
     
     <style>  
      * {
@@ -204,13 +205,13 @@
            width: 90%;
         }
       }
-</style>
+    </style>
 
 </head>
 <body>
     
     <!-- Dark Mode -->
-    <button id="modeToggle" title="Toggle dark/light mode">💀</button>
+    <button id="modeToggle" title="Toggle dark/light mode">👁️</button>
     
     <!-- Loading Screen -->
     <div class="loading-screen">
@@ -249,36 +250,36 @@
     <section>
         <h2></h2>
         <div class="projects">
-            <div class="project" title="Untitled">
-                <img src="https://cdn.cosmos.so/ac743783-a619-4ca8-95d5-da65654c11ee?format=jpeg" alt="SFR1N ART" onclick="openFullscreen(this)">
-                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
-            </div>
+        <div class="project" title="Untitled">
+        <img src="https://cdn.cosmos.so/ac743783-a619-4ca8-95d5-da65654c11ee?format=jpeg" alt="SFR1N ART" onclick="openFullscreen(this)">
+        <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
+        </div>
 
-            <div class="project" title="Untitled">
-                <img src="https://cdn.cosmos.so/30a1bd85-b9f5-45fd-affb-163615475ccd?format=jpeg" alt="SFR1N ART" onclick="openFullscreen(this)">
-                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
-            </div>
+        <div class="project" title="Untitled">
+        <img src="https://cdn.cosmos.so/30a1bd85-b9f5-45fd-affb-163615475ccd?format=jpeg" alt="SFR1N ART" onclick="openFullscreen(this)">
+        <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
+        </div>
 
-            <div class="project" title="Untitled">
-                <img src="https://cdn.cosmos.so/97518972-df0e-4563-9ede-70ae23cb4dc0?format=png"alt="SFR1N ART" onclick="openFullscreen(this)">
-                <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
-            </div>
-         </div>
+        <div class="project" title="Untitled">
+        <img src="https://cdn.cosmos.so/97518972-df0e-4563-9ede-70ae23cb4dc0?format=png"alt="SFR1N ART" onclick="openFullscreen(this)">
+        <h6><a href="https://www.cosmos.so/sfr1n/sfr1n1" target="_blank">VISIT PROJECT</a></h6>
+        </div>
+        </div>
     </section>
 
     <!-- Contact Info Section -->
     <section>
         <p>
-            📩 <strong>Email:</strong> 
+            🩸 <strong>Email:</strong> 
             <a href="mailto:angelopatawaranregala@gmail.com">angelopatawaranregala@gmail.com</a> 
             <br>
-            ✏️ <strong>Page:</strong> 
+            🩸 <strong>Page:</strong> 
             <a href="https://www.facebook.com/SFR1N.ART" target="_blank">@artshitsarchives</a> 
             <br> 
-            👤 <strong>Facebook:</strong> 
+            🩸 <strong>Facebook:</strong> 
             <a href="https://www.facebook.com/SFR1NN" target="_blank">@sifer1ne</a> 
             <br>
-            💾 <strong>Instagram:</strong> 
+            🩸 <strong>Instagram:</strong> 
             <a href="https://www.instagram.com/sfr1n" target="_blank">@sfr1n</a>
         </p>
     </section>
@@ -288,7 +289,7 @@
             <h2>SUPPORT THE UNKNOWN</h2>
             <div class="gcash-container">
             <a href="https://linktr.ee/sfr1n" target="_blank">
-            <img src="gcash-qr-code.png.jpg" alt="GCash QR Code" class="gcash-qr" />
+            <img src="gcash-qr-code.jpg" alt="GCash QR Code" class="gcash-qr" />
             <p><strong>0931*****70</strong></p>
             </div>
     </section>   
@@ -334,13 +335,13 @@
         const currentMode = localStorage.getItem("theme") || "dark";
 
         document.body.classList.toggle("light-mode", currentMode === "light");
-        toggleBtn.textContent = currentMode === "light" ? "🩸" : "💀";
+        toggleBtn.textContent = currentMode === "light" ? "🩸" : "👁️";
 
         toggleBtn.addEventListener("click", () => {
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
-        toggleBtn.textContent = isLight ? "🩸" : "💀";
+        toggleBtn.textContent = isLight ? "🩸" : "👁️";
         });
-    </script>
+     </script>
 </body>
 </html>
