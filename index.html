@@ -13,17 +13,17 @@
             box-sizing: border-box;
         }        
         body {
-            font-family: Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             text-align: center;
             color: white;
             background-color: black;
             overflow-x: hidden;
         }
-        /* THEME TOGGLE BUTTON STYLE */
+        /* THEME TOGGLE BUTTON STYLE 
         #modeToggle {
             position: fixed;
-            bottom: 8px;
-            right: 8px;
+            bottom: 5px;
+            right: 5px;
             z-index: 1000;
             background: transparent;
             border: 2px solid white;
@@ -34,6 +34,50 @@
             color: white;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
+        }*/
+        /* Slider Toggle Styles */
+        .switch {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            z-index: 1000;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+           position: absolute;
+           cursor: pointer;
+           background-color: black;
+           border-radius: 34px;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           transition: 0.4s;
+        }
+        .slider:before {
+           position: absolute;
+           content: "";
+           height: 18px;
+           width: 18px;
+           left: 4px;
+           bottom: 4px;
+           background-color: #5a1616;
+           border-radius: 50%;
+           transition: 0.4s;
+        }
+        input:checked + .slider {
+           background-color: #5a1616;
+        }
+        input:checked + .slider:before {
+           transform: translateX(24px);
+           background-color: black;
         }
         #modeToggle:hover {
             background: rgba(255, 255, 255, 0.1);
@@ -110,6 +154,7 @@
         header {
             background: #5a1616;
             padding: 15px;
+            font-family: BlinkMacSystemFont;
             font-size: 24px;
             font-weight: bold;
             color: white;
@@ -154,8 +199,10 @@
         }
         .project h6 a {
             color: white;
-            text-decoration: none;
             font-weight: bold;
+        }
+        .project h6 a:hover {
+            text-decoration: underline;
         }
         .fullscreen-overlay {
             position: fixed;
@@ -196,6 +243,7 @@
             color: #5a1616;
             font-weight: bold;
             text-decoration: none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
         a:hover {
             text-decoration: underline;
@@ -203,7 +251,7 @@
         .support-section {
             text-align: center;
             padding: 40px;
-            /*background: #5a1616;*/
+            /*background: grey;*/
         }
         .gcash-container img {
             width: 200px;
@@ -211,17 +259,6 @@
             margin: 20px auto;
             display: block;
             cursor: pointer;
-        }
-        #modeToggle {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            z-index: 1000;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
         }
         @media screen and (max-width: 600px) {
         .projects {
@@ -233,41 +270,44 @@
         }
       }
     </style>
-
 </head>
-<body>
-    
+<body> 
     <!-- Dark Mode -->
     <!-- OLD TOGGLE BUTTON (COMMENTED) -->
     <!-- <button id="modeToggle" title="Toggle dark/light mode">👁️</button> -->
 
-    <!-- NEW STYLISH TOGGLE BUTTON (USES OLD ICONS) -->
+    <!-- NEW STYLISH TOGGLE BUTTON (USES OLD ICONS)
     <button id="modeToggle" title="TOGGLE TO CHANGE MODE">
     <span class="icon" id="themeIcon">👁️</span>
-    </button>
+    </button> -->
+
+    <label class="switch" title="TOGGLE TO CHANGE THEME">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider round"></span>
+    </label>
     
     <!-- Loading Screen -->
     <div class="loading-screen">
-        <video class="loading-video" autoplay muted loop>
-            <source src="https://cdn.cosmos.so/7f801a70-adaf-47ce-bbe7-8a2075fdc395.mp4" type="video/mp4">
-        </video>
-       <!-- <div class="loading-text"><span class="loading-dots"></span></div> -->
+    <video class="loading-video" autoplay muted loop>
+    <source src="https://cdn.cosmos.so/7f801a70-adaf-47ce-bbe7-8a2075fdc395.mp4" type="video/mp4">
+    </video>
+    <!-- <div class="loading-text"><span class="loading-dots"></span></div> -->
     </div>
 
     <!-- Fullscreen Image Overlay -->
     <div class="fullscreen-overlay" id="fullscreenOverlay">
-        <span class="close-btn" onclick="closeFullscreen()">⚔️</span>
-        <img id="fullscreenImage" src="" alt="Fullscreen View">
+    <span class="close-btn" onclick="closeFullscreen()">⚔️</span>
+    <img id="fullscreenImage" src="" alt="Fullscreen View">
     </div>
 
     <!-- Background Video -->
     <video class="video-bg" autoplay loop muted>
-        <source src="https://cdn.cosmos.so/bdefcb58-7977-4841-bde0-61405871d4df.mp4">
+    <source src="https://cdn.cosmos.so/bdefcb58-7977-4841-bde0-61405871d4df.mp4">
     </video>
 
     <!-- Header Section -->
     <header>
-        <h1>SKEPTIC</h1>
+    <h1>SKEPTIC</h1>
     </header>
 
     <!-- SFR1N -->
@@ -303,17 +343,17 @@
     <!-- Contact Info Section -->
     <section>
         <p>
-            <strong>Email:</strong> 
-            <a href="mailto:angelopatawaranregala@gmail.com">angelopatawaranregala@gmail.com</a> 
+            <h6>EMAIL</h6> 
+            <a href="mailto:angelopatawaranregala@gmail.com">ANGELOPATAWARANREGALA</a> 
             <br>
-            <strong>Page:</strong> 
-            <a href="https://www.facebook.com/SFR1N.ART" target="_blank">@artshitsarchives</a> 
+            <h6>PAGE</h6> 
+            <a href="https://www.facebook.com/SFR1N.ART" target="_blank">ARTSHITSARCHIVES</a> 
             <br> 
-            <strong>Facebook:</strong> 
-            <a href="https://www.facebook.com/SFR1NN" target="_blank">@sifer1ne</a> 
+            <h6>FACEBOOK</h6> 
+            <a href="https://www.facebook.com/SFR1NN" target="SFR1N">SIFER1NE</a> 
             <br>
-            <strong>Instagram:</strong> 
-            <a href="https://www.instagram.com/sfr1n" target="_blank">@sfr1n</a>
+            <h6>INSTAGRAM</h6> 
+            <a href="https://www.instagram.com/sfr1n" target="_blank">SFR1N</a>
         </p>
     </section>
     
@@ -321,7 +361,7 @@
     <section class="support-section">
             <h2>SUPPORT THE UNKNOWN</h2>
             <div class="gcash-container">
-            <a href="https://linktr.ee/sfr1n" target="_blank">
+            <!--<a href="https://www.cosmos.so/sfr1n" target="_blank">-->
             <img src="gcash-qr-code.jpg" alt="GCash QR Code" class="gcash-qr" />
             <p><strong>0931*****70</strong></p>
             </div>
@@ -374,9 +414,9 @@
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
         toggleBtn.textContent = isLight ? "🩸" : "👁️";
-        }); */
+        });*/
 
-        const modeToggle = document.getElementById("modeToggle");
+        /*const modeToggle = document.getElementById("modeToggle");
         const themeIcon = document.getElementById("themeIcon");
         const savedTheme = localStorage.getItem("theme") || "dark";
 
@@ -386,13 +426,25 @@
         } else {
         themeIcon.textContent = "👁️";
         }
-
         modeToggle.addEventListener("click", () => {
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
         themeIcon.textContent = isLight ? "🩸" : "👁️";
+        }); */
+
+        const modeToggle = document.getElementById("modeToggle");
+        const savedTheme = localStorage.getItem("theme") || "dark";
+
+        if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+        modeToggle.checked = true;
+        }
+
+        modeToggle.addEventListener("change", () => {
+        const isLight = modeToggle.checked;
+        document.body.classList.toggle("light-mode", isLight);
+        localStorage.setItem("theme", isLight ? "light" : "dark");
         });
-     </script>
-    
+    </script>
 </body>
 </html>
