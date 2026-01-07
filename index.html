@@ -115,14 +115,15 @@
             color: black;
        }
        .video-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100vw;
+       height: 100vh;
+       object-fit: cover;
+       z-index: -1;
+       pointer-events: none;
+       }
         /*.loading-screen {
             position: fixed;
             width: 100%;
@@ -350,8 +351,13 @@
         .project {
            width: 90%;
         }
-      }
-    </style>
+        }
+        @media (max-width: 768px) {
+       .video-bg {
+       filter: brightness(0.9) contrast(1.1);
+       }
+       }
+       </style>
 </head>
 <body> 
     <!-- Dark Mode -->
@@ -368,7 +374,15 @@
     </label>
     
     <div class="loading-screen">
-    <video class="loading-video" autoplay muted loop>
+    <video
+    class="loading-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    >
     <source src="https://cdn.cosmos.so/1afde4d2-b459-4c35-a8bd-a4e6ecefc324.mp4">
     </video>
     <div class="loading-logo">SFR1N</div>
@@ -381,8 +395,16 @@
     </div>
 
     <!-- Background Video -->
-    <video class="video-bg" autoplay loop muted>
-    <source src="https://cdn.cosmos.so/f88b85c5-1d52-477c-8053-3f568a152add.mp4">
+    <video
+    class="video-bg"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    >
+    <source src="https://cdn.cosmos.so/f88b85c5-1d52-477c-8053-3f568a152add.mp4" type="video/mp4">
     </video>
 
     <!-- Header Section -->
@@ -563,6 +585,7 @@
     </script>
 </body>
 </html>
+
 
 
 
