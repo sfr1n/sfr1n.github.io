@@ -280,6 +280,42 @@
             display: block;
             cursor: pointer;
         }
+.audio-section {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
+.audio-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+.audio-play-button {
+    background: #5a1616;
+    border: 1px solid #5a1616;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.audio-play-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+}
+.audio-player {
+    width: min(420px, 90%);
+    background: #111;
+    border: 1px solid #5a1616;
+    border-radius: 30px;
+    padding: 8px 12px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
         @media screen and (max-width: 600px) {
         .projects {
             flex-direction: column;
@@ -356,7 +392,20 @@
             
         </p>
     </section>
-
+<!-- Music Section -->
+<section class="audio-section">
+    <h2>NOW PLAYING</h2>
+    <p>Click play to vibe while browsing.</p>
+    <div class="audio-controls">
+        <button class="audio-play-button" type="button" id="audioToggle" aria-pressed="false">
+            ▶️ Play
+        </button>
+        <audio class="audio-player" controls loop preload="none" id="siteAudio">
+            <source src="sfr1nmusic.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</section>
     <!-- Portfolio Section -->
     <section>
         <div class="projects">
@@ -518,9 +567,38 @@
         document.body.classList.toggle("light-mode", isLight);
         localStorage.setItem("theme", isLight ? "light" : "dark");
         });
+
+const audioToggle = document.getElementById("audioToggle");
+const siteAudio = document.getElementById("siteAudio");
+
+if (audioToggle && siteAudio) {
+audioToggle.addEventListener("click", () => {
+if (siteAudio.paused) {
+siteAudio.play();
+audioToggle.textContent = "⏸️ Pause";
+audioToggle.setAttribute("aria-pressed", "true");
+} else {
+siteAudio.pause();
+audioToggle.textContent = "▶️ Play";
+audioToggle.setAttribute("aria-pressed", "false");
+}
+});
+
+siteAudio.addEventListener("pause", () => {
+audioToggle.textContent = "▶️ Play";
+audioToggle.setAttribute("aria-pressed", "false");
+});
+
+siteAudio.addEventListener("play", () => {
+audioToggle.textContent = "⏸️ Pause";
+audioToggle.setAttribute("aria-pressed", "true");
+});
+}
+
     </script>
 </body>
 </html>
+
 
 
 
