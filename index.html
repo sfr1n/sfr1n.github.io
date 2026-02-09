@@ -530,12 +530,12 @@
         const currentMode = localStorage.getItem("theme") || "dark";
 
         document.body.classList.toggle("light-mode", currentMode === "light");
-        toggleBtn.textContent = currentMode === "light" ? "🩸" : "👁️";
+        toggleBtn.textContent = currentMode === "light" ? "🩸rr" : "👁️rr";
 
         toggleBtn.addEventListener("click", () => {
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
-        toggleBtn.textContent = isLight ? "🩸" : "👁️";
+        toggleBtn.textContent = isLight ? "🩸rr" : "👁️rr";
         });*/
 
         /*const modeToggle = document.getElementById("modeToggle");
@@ -544,14 +544,14 @@
 
         if (savedTheme === "light") {
         document.body.classList.add("light-mode");
-        themeIcon.textContent = "🩸";
+        themeIcon.textContent = "🩸rr";
         } else {
-        themeIcon.textContent = "👁️";
+        themeIcon.textContent = "👁️rr";
         }
         modeToggle.addEventListener("click", () => {
         const isLight = document.body.classList.toggle("light-mode");
         localStorage.setItem("theme", isLight ? "light" : "dark");
-        themeIcon.textContent = isLight ? "🩸" : "👁️";
+        themeIcon.textContent = isLight ? "🩸rr" : "👁️rr";
         }); */
 
         const modeToggle = document.getElementById("modeToggle");
@@ -568,49 +568,33 @@
         localStorage.setItem("theme", isLight ? "light" : "dark");
         });
 
-const audioToggle = document.getElementById("audioToggle");
-const siteAudio = document.getElementById("siteAudio");
+        const audioToggle = document.getElementById("audioToggle");
+        const siteAudio = document.getElementById("siteAudio");
 
-if (audioToggle && siteAudio) {
-audioToggle.addEventListener("click", () => {
-if (siteAudio.paused) {
-siteAudio.play();
-audioToggle.textContent = "Pause";
-audioToggle.setAttribute("aria-pressed", "true");
-} else {
-siteAudio.pause();
-audioToggle.textContent = "Play";
-audioToggle.setAttribute("aria-pressed", "false");
-}
-});
+        if (audioToggle && siteAudio) {
+        audioToggle.addEventListener("click", () => {
+        if (siteAudio.paused) {
+        siteAudio.play();
+        audioToggle.textContent = "Pause";
+        audioToggle.setAttribute("aria-pressed", "true");
+        } else {
+        siteAudio.pause();
+        audioToggle.textContent = "Play";
+        audioToggle.setAttribute("aria-pressed", "false");
+        }
+        });
 
-siteAudio.addEventListener("pause", () => {
-audioToggle.textContent = "Play";
-audioToggle.setAttribute("aria-pressed", "false");
-});
+        siteAudio.addEventListener("pause", () => {
+        audioToggle.textContent = "Play";
+        audioToggle.setAttribute("aria-pressed", "false");
+        });
 
-siteAudio.addEventListener("play", () => {
-audioToggle.textContent = "Pause";
-audioToggle.setAttribute("aria-pressed", "true");
-});
-}
+        siteAudio.addEventListener("play", () => {
+        audioToggle.textContent = "Pause";
+        audioToggle.setAttribute("aria-pressed", "true");
+        });
+        }
 
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </script>
+        </body>
+        </html>
