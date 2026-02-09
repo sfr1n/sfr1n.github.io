@@ -398,7 +398,7 @@
     <p>Click play to vibe while browsing.</p>
     <div class="audio-controls">
         <button class="audio-play-button" type="button" id="audioToggle" aria-pressed="false">
-            ▶️ Play
+             Play
         </button>
         <audio class="audio-player" controls loop preload="none" id="siteAudio">
             <source src="sfr1nmusic.mp3" type="audio/mpeg">
@@ -575,22 +575,22 @@ if (audioToggle && siteAudio) {
 audioToggle.addEventListener("click", () => {
 if (siteAudio.paused) {
 siteAudio.play();
-audioToggle.textContent = "⏸️ Pause";
+audioToggle.textContent = "Pause";
 audioToggle.setAttribute("aria-pressed", "true");
 } else {
 siteAudio.pause();
-audioToggle.textContent = "▶️ Play";
+audioToggle.textContent = "Play";
 audioToggle.setAttribute("aria-pressed", "false");
 }
 });
 
 siteAudio.addEventListener("pause", () => {
-audioToggle.textContent = "▶️ Play";
+audioToggle.textContent = "Play";
 audioToggle.setAttribute("aria-pressed", "false");
 });
 
 siteAudio.addEventListener("play", () => {
-audioToggle.textContent = "⏸️ Pause";
+audioToggle.textContent = "Pause";
 audioToggle.setAttribute("aria-pressed", "true");
 });
 }
@@ -598,6 +598,7 @@ audioToggle.setAttribute("aria-pressed", "true");
     </script>
 </body>
 </html>
+
 
 
 
