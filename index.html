@@ -280,42 +280,55 @@
             display: block;
             cursor: pointer;
         }
-.audio-section {
-    text-align: center;
-    padding: 30px 20px 10px;
-}
-.audio-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
-}
-.audio-play-button {
-    background: #5a1616;
-    border: 1px solid #5a1616;
-    color: white;
-    padding: 10px 22px;
-    border-radius: 999px;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.audio-play-button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
-}
-.audio-player {
-    width: min(420px, 90%);
-    background: #111;
-    border: 1px solid #5a1616;
-    border-radius: 30px;
-    padding: 8px 12px;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-}
+        .audio-section {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
+        .audio-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .audio-play-button {
+            background: #5a1616;
+            border: 1px solid #5a1616;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .audio-play-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+        }
+        .audio-player {
+            width: min(420px, 90%);
+            background: rgba(0, 0, 0, 0.25); /* transparent */
+            backdrop-filter: blur(6px);     /* glass effect */
+           -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(90, 22, 22, 0.6);
+            border-radius: 30px;
+            padding: 8px 12px;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+        }
+        .audio-player::-webkit-media-controls-panel {
+            background: transparent;
+        }
+        .audio-player::-webkit-media-controls-play-button,
+        .audio-player::-webkit-media-controls-mute-button {
+            filter: invert(1);
+        }
+        .audio-player::-webkit-media-controls-timeline,
+        .audio-player::-webkit-media-controls-volume-slider {
+            filter: invert(1);
+        }
         @media screen and (max-width: 600px) {
         .projects {
             flex-direction: column;
@@ -326,10 +339,10 @@
         }
         }
         @media (max-width: 768px) {
-       .video-bg {
-       filter: brightness(0.9) contrast(1.1);
-       }
-       }
+           .video-bg {
+           filter: brightness(0.9) contrast(1.1);
+        }
+        }
        </style>
 </head>
 <body> 
@@ -598,6 +611,7 @@
         </script>
         </body>
         </html>
+
 
 
 
