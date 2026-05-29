@@ -1,0 +1,400 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:black;
+color:white;
+font-family:system-ui;
+overflow-x:hidden;
+}
+
+/* NAV */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+
+/* Header */
+background:#5a1616;
+
+backdrop-filter:blur(14px);
+z-index:100;
+}
+
+.logo{
+font-weight:bold;
+letter-spacing:4px;
+font-size:18px;
+}
+
+.nav-links a{
+color:white;
+margin-left:30px;
+text-decoration:none;
+font-size:14px;
+letter-spacing:1px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+opacity:.6;
+}
+
+/* SLIDER */
+.slider{
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+
+.slides{
+height:100%;
+width:100%;
+position:relative;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+transition:opacity 1s ease;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.75) contrast(1.1);
+}
+
+/* TEXT OVERLAY CLEAN */
+.slide-text{
+position:absolute;
+bottom:18%;
+left:50%;
+transform:translateX(-50%);
+
+font-size:clamp(22px, 3vw, 48px);
+font-weight:300;
+letter-spacing:.5px;
+
+text-align:center;
+max-width:900px;
+
+background:none;
+text-shadow:
+0 4px 25px rgba(0,0,0,.95),
+0 0 40px rgba(0,0,0,.6);
+
+animation:fadeText 1.2s ease;
+}
+
+@keyframes fadeText{
+from{
+opacity:0;
+transform:translate(-50%, 20px);
+}
+to{
+opacity:1;
+transform:translate(-50%, 0);
+}
+}
+
+/* ARROWS */
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,.25);
+border:none;
+color:white;
+font-size:42px;
+padding:12px 20px;
+cursor:pointer;
+z-index:10;
+backdrop-filter:blur(6px);
+transition:.3s;
+}
+
+.arrow:hover{
+background:rgba(90,22,22,.6);
+}
+
+.left{ left:30px; }
+.right{ right:30px; }
+
+/* DOTS */
+.dots{
+position:absolute;
+bottom:40px;
+width:100%;
+text-align:center;
+}
+
+.dot{
+height:10px;
+width:10px;
+margin:6px;
+background:white;
+border-radius:50%;
+display:inline-block;
+opacity:.35;
+cursor:pointer;
+transition:.3s;
+}
+
+.dot.active{
+opacity:1;
+transform:scale(1.3);
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+padding:140px 10%;
+}
+
+.section-title{
+font-size:14px;
+letter-spacing:4px;
+margin-bottom:50px;
+opacity:.7;
+}
+
+/* ================= WORK GRID ================= */
+
+/* WORK CATEGORY TITLE */
+.work-category{
+margin-top:70px;
+margin-bottom:25px;
+font-size:13px;
+letter-spacing:3px;
+opacity:.6;
+}
+
+/* WORK GRID ENHANCED */
+.work-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
+
+.work-grid img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+cursor:pointer;
+transition:.45s ease;
+
+filter:
+brightness(.85)
+contrast(1.05)
+saturate(.95);
+
+border-radius:6px;
+}
+
+.work-grid img:hover{
+transform:scale(1.04);
+filter:brightness(1) contrast(1.1);
+box-shadow:
+0 10px 40px rgba(0,0,0,.6),
+0 0 20px rgba(90,22,22,.2);
+}
+
+/* ================= ABOUT EDITORIAL ================= */
+
+.about-section{
+background:#0b0b0b;
+}
+
+.about-editorial{
+max-width:1100px;
+margin:auto;
+}
+
+.about-editorial p{
+font-size:clamp(24px, 2.2vw, 42px);
+line-height:1.5;
+font-weight:300;
+letter-spacing:.3px;
+}
+
+/* 🔥 LONG EDITORIAL PILL IMAGES */
+.inline-img{
+display:inline-block;
+margin:0 12px;
+vertical-align:middle;
+}
+
+.inline-img img{
+
+/* MAIN SHAPE CONTROL */
+height:34px;
+width:130px;
+
+object-fit:cover;
+border-radius:999px;
+
+/* PREMIUM FEEL */
+box-shadow:
+0 4px 18px rgba(0,0,0,.45),
+0 0 25px rgba(90,22,22,.15);
+
+transition:.35s cubic-bezier(.2,.8,.2,1);
+cursor:pointer;
+}
+
+/* HOVER */
+.inline-img img:hover{
+transform:scale(1.08);
+filter:brightness(1.15);
+box-shadow:
+0 6px 25px rgba(0,0,0,.6),
+0 0 35px rgba(90,22,22,.35);
+}
+
+/* ================= IMAGE MODAL FULLSCREEN ================= */
+
+.img-modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+backdrop-filter:blur(10px);
+
+align-items:center;
+justify-content:center;
+}
+
+.img-modal-content{
+max-width:90%;
+max-height:90%;
+object-fit:contain;
+
+animation:zoomIn .4s ease;
+}
+
+@keyframes zoomIn{
+from{
+transform:scale(.9);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.img-close{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+opacity:.7;
+transition:.3s;
+}
+
+.img-close:hover{
+opacity:1;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-section{
+text-align:center;
+}
+
+.contact-container{
+max-width:500px;
+margin:auto;
+}
+
+.contact-container p{
+margin-top:25px;
+font-size:13px;
+letter-spacing:2px;
+opacity:.6;
+}
+
+.contact-container a{
+display:block;
+margin-top:6px;
+color:rgb(255, 255, 255);
+text-decoration:none;
+font-size:18px;
+transition:.3s;
+}
+
+.contact-container a:hover{
+opacity:.6;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+background:rgba(90,22,22,.6);
+font-size:13px;
+letter-spacing:1px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.nav{
+padding:18px 20px;
+}
+
+.nav-links a{
+margin-left:18px;
+font-size:13px;
+}
+
+.slide-text{
+font-size:clamp(18px, 5vw, 28px);
+bottom:22%;
+padding:0 20px;
+}
+
+.arrow{
+font-size:32px;
+padding:8px 14px;
+}
+
+.section{
+padding:110px 25px;
+}
+
+.about-editorial p{
+font-size:22px;
+}
+
+/* MOBILE PILLS */
+.inline-img img{
+height:28px;
+width:95px;
+}
+
+}
