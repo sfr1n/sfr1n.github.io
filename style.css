@@ -104,19 +104,15 @@ object-fit:cover;
 z-index:-1;
 }
 
-.loading-logo{
-font-size:clamp(38px, 6vw, 72px);
-font-weight:700;
-letter-spacing:10px;
-color:#ff003c;
-
+.loading-logo {
+font-family: 'Orbitron', 'Share Tech Mono', sans-serif;
+font-size: 4rem;
+color: #ff003c;
 text-shadow:
 0 0 5px #ff003c,
 0 0 10px #ff003c,
-0 0 25px #ff003c,
-0 0 60px rgba(255,0,60,.45);
-
-animation:flicker 1.8s infinite;
+0 0 40px #ff003c;
+animation: flicker 1.8s infinite;
 }
 
 @keyframes flicker{
