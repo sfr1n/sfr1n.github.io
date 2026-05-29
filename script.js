@@ -184,5 +184,5 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       loadingScreen.style.display = "none";
     }, 500);
-  }, 8000);
+  }, 10000);
 });
