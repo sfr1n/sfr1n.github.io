@@ -175,14 +175,12 @@ restartAutoSlide();
 
 startAutoSlide();
 
-const loadingScreen = document.querySelector(".loading-screen");
+const video = document.querySelector(".loading-video");
+const loader = document.querySelector(".loading-screen");
 
-window.addEventListener("load", () => {
+video.addEventListener("ended", () => {
+  loader.style.opacity = "0";
   setTimeout(() => {
-    loadingScreen.style.opacity = "0";
-
-    setTimeout(() => {
-      loadingScreen.style.display = "none";
-    }, 500);
-  }, 9000);
+    loader.style.display = "none";
+  }, 600);
 });
