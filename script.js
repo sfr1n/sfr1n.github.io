@@ -174,3 +174,15 @@ restartAutoSlide();
 /* ================= INIT ================= */
 
 startAutoSlide();
+
+const loadingScreen = document.querySelector(".loading-screen");
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    loadingScreen.style.opacity = "0";
+
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+    }, 500);
+  }, 8000);
+});
